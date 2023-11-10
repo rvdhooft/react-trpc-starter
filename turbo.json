@@ -9,7 +9,10 @@
     "lint": {},
     "dev": {
       "cache": false,
+      "dotEnv": [".env.local"],
       "persistent": true
-    }
+    },
+    "prisma-studio": {},
+    "db-seed": {}
   }
 }

@@ -1,0 +1,12 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "env": ["PORT", "NODE_ENV"],
+      "dotEnv": [".env.local"]
+    },
+    "dev": {
+      "dotEnv": [".env.local"]
+    }
+  }
+}

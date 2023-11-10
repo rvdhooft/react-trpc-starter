@@ -2,13 +2,18 @@
 
 This is an official starter Turborepo.
 
-## Using this example
+## About
 
-Run the following command:
+This project uses [Turborepo](https://turbo.build/repo) as the build system for both the frontend and backend.
 
-```sh
-npx create-turbo@latest
-```
+Tooling is managed by [Volta](https://volta.sh/) to ensure that developers are all using the same versions of node & yarn.
+
+The frontend is built using [React](https://react.dev/) running on [Vite](https://vitejs.dev/).
+UI Library: [MUI](https://mui.com/)
+
+The app uses [tRPC](https://trpc.io/) to quickly connect the client and server in a way that's easy and typesafe.
+
+The server connects to the SQL database using the [Prisma](https://www.prisma.io/) ORM.
 
 ## What's inside?
 
@@ -16,38 +21,52 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `react`: a React app
+- `trpc`: a Node + tRPC backend
+- `eslint-config-custom`: `eslint` configurations
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Utilities
+### Getting Started
 
-This Turborepo has some additional tools already setup for you:
+1. Install [Volta](https://volta.sh/). This will download the pinned versions of node & yarn for you in the background to make sure everyone is using the same versions.
+2. Install the recommended VSCode extensions.
+3. Create a `.env.local` file and populate it with the correct local values. An `.env.example` file is available to show the expected variables.
+4. Run `yarn` to install all of the packages.
+5. Run `yarn prebuild` to run the Prisma generator and any migrations
+6. Run `yarn dev` to start running both the frontend and backend
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Extras
+
+#### Prisma Studio
+
+[Prisma Studio](https://www.prisma.io/studio) is the easiest way to see the data in the database. Start it up by running
+
+```
+yarn prisma-studio
+```
+
+Additionally, you can learn about and try out queries and migrations in the [Prisma Playground](https://playground.prisma.io/).
+
+To add seed data to the database, modify `packages/trpc/prisma/seed.ts` and then run `yarn db-seed`
+
+#### Knip
+
+[Knip](https://github.com/webpro/knip) has been added to the base of this repo to help keep the codebase clean. Run the following command to have knip search the repo for unused code and provide a report in a file called unused-code-report.txt at the project's root.
+
+```
+yarn find-unused-code
+```
+
+This command will find and report unused files, dependencies, and exports. If you'd like to run just a subset, check out the options within the `scripts` section in the root package.json.
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
+yarn build
 ```
 
 ### Remote Caching

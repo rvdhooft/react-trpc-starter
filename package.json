@@ -4,18 +4,29 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "db-seed": "turbo run db-seed --filter trpc",
+    "prisma-studio": "turbo run prisma-studio --filter trpc",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "find-unused-code": "knip > unused-code-report.txt",
+    "find-unused-code:files": "knip --include files > unused-code-report.txt",
+    "find-unused-code:dependencies": "knip --dependencies > unused-code-report.txt",
+    "find-unused-code:exports": "knip --exports > unused-code-report.txt"
   },
   "devDependencies": {
-    "eslint": "^8.48.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "eslint": "^8.53.0",
+    "knip": "^2.40.2",
     "prettier": "^3.0.3",
-    "tsconfig": "*",
     "turbo": "latest"
   },
-  "name": "stryker",
+  "name": "react-trpc-starter",
   "packageManager": "yarn@1.22.19",
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "volta": {
+    "node": "20.9.0",
+    "yarn": "4.0.1"
+  }
 }

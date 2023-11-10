@@ -1,0 +1,21 @@
+{
+  "workspaces": {
+    "packages/eslint-config-custom": {
+      "ignoreDependencies": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "eslint",
+        "eslint-config-prettier",
+        "eslint-config-turbo",
+        "eslint-plugin-import",
+        "eslint-plugin-react-hooks",
+        "eslint-plugin-react-refresh"
+      ]
+    },
+    "packages/trpc": {
+      "entry": ["src/server.ts", "prisma/seed.ts"],
+      "ignore": ["dist"],
+      "ignoreDependencies": ["ts-node"]
+    }
+  }
+}

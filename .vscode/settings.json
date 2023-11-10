@@ -1,0 +1,20 @@
+{
+  "cSpell.words": [
+    "Futura",
+    "ianvs",
+    "knip",
+    "Neue",
+    "prebuild",
+    "tanstack",
+    "trpc",
+    "Turborepo",
+    "typesafe"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "versionlens.suggestions.showOnStartup": true
+}
