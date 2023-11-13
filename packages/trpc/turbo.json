@@ -2,7 +2,7 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "env": ["PORT", "NODE_ENV"],
+      "env": ["PORT", "NODE_ENV", "APP_URL"],
       "dotEnv": [".env.local"]
     },
     "dev": {

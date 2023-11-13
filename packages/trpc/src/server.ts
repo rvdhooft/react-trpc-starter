@@ -1,5 +1,29 @@
-import app from './app'
+import cors from '@fastify/cors'
+import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
+import fastify from 'fastify'
+import { createContext } from './context'
+import appRouter from './router'
 
-const PORT = process.env.PORT || 5001
+const server = fastify({
+  maxParamLength: 5000,
+})
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}.`))
+server.register(cors, {
+  origin: process.env.APP_URL,
+})
+
+server.register(fastifyTRPCPlugin, {
+  prefix: '/trpc',
+  trpcOptions: { router: appRouter, createContext },
+})
+;(async () => {
+  try {
+    const PORT = process.env.PORT ? +process.env.PORT : 5001
+
+    await server.listen({ port: PORT })
+    console.log(`Listening on port ${PORT}.`)
+  } catch (err) {
+    server.log.error(err)
+    process.exit(1)
+  }
+})()
