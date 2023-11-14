@@ -1,0 +1,29 @@
+{
+  "name": "@react-trpc-starter/database",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "db-setup": "yarn db-generate && yarn db-migrate && yarn db-seed",
+    "db-generate": "prisma generate",
+    "db-push": "prisma db push --skip-generate",
+    "db-deploy": "prisma migrate deploy",
+    "db-migrate": "prisma migrate dev",
+    "db-seed": "prisma db seed",
+    "db-studio": "prisma studio"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "dependencies": {
+    "@prisma/client": "^5.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "eslint-config-custom": "*",
+    "prisma": "^5.6.0",
+    "tsconfig": "*",
+    "tsx": "^4.1.2"
+  }
+}

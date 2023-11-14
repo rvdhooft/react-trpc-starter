@@ -11,6 +11,8 @@ const server = fastify({
   maxParamLength: 5000,
 })
 
+if (!process.env.APP_URL) throw 'APP_URL environment variable not found.'
+
 server.register(cors, {
   origin: process.env.APP_URL,
 })

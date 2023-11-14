@@ -12,6 +12,10 @@
         "eslint-plugin-react-refresh"
       ]
     },
+    "packages/database": {
+      "entry": ["prisma/seed.ts"],
+      "ignoreDependencies": ["tsx", "tsconfig"]
+    },
     "packages/trpc": {
       "entry": ["src/server.ts", "prisma/seed.ts"],
       "ignore": ["dist"],

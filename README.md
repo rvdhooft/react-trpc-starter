@@ -32,9 +32,9 @@ Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 1. Install [Volta](https://volta.sh/). This will download the pinned versions of node & yarn for you in the background to make sure everyone is using the same versions.
 2. Install the recommended VSCode extensions.
-3. Create a `.env.local` file and populate it with the correct local values. An `.env.example` file is available to show the expected variables.
+3. Create a `.env` file at the project root and populate it with the correct local values. An `.env.example` file is available to show the expected variables.
 4. Run `yarn` to install all of the packages.
-5. Run `yarn prebuild` to run the Prisma generator and any migrations
+5. Run `yarn db-setup` to run the Prisma generator and any migrations and seed data
 6. Run `yarn dev` to start running both the frontend and backend
 
 ### Extras
@@ -44,7 +44,7 @@ Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 [Prisma Studio](https://www.prisma.io/studio) is the easiest way to see the data in the database. Start it up by running
 
 ```
-yarn prisma-studio
+yarn db-studio
 ```
 
 Additionally, you can learn about and try out queries and migrations in the [Prisma Playground](https://playground.prisma.io/).

@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@react-trpc-starter/database'
 import * as trpc from '@trpc/server'
 
 export async function createContextInner() {

@@ -2,7 +2,7 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "env": ["PORT", "NODE_ENV", "APP_URL"]
+      "env": ["DATABASE_URL"]
     }
   }
 }

@@ -1,6 +1,5 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
@@ -9,10 +8,9 @@
     "lint": {},
     "dev": {
       "cache": false,
-      "dotEnv": [".env.local"],
       "persistent": true
     },
-    "prisma-studio": {},
-    "db-seed": {}
+    "db-setup": {},
+    "db-studio": {}
   }
 }
