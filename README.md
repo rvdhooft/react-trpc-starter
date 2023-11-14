@@ -51,6 +51,10 @@ Additionally, you can learn about and try out queries and migrations in the [Pri
 
 To add seed data to the database, modify `packages/trpc/prisma/seed.ts` and then run `yarn db-seed`
 
+#### tRPC Panel
+
+[tRPC Panel](https://github.com/iway1/trpc-panel) is the quickest way to see and manually test the available tRPC endpoints. tRPC Panel starts up automatically with the server when you run `yarn dev` and will be available at [http://localhost:5001/panel](http://localhost:5001/panel).
+
 #### Knip
 
 [Knip](https://github.com/webpro/knip) has been added to the base of this repo to help keep the codebase clean. Run the following command to have knip search the repo for unused code and provide a report in a file called unused-code-report.txt at the project's root.
