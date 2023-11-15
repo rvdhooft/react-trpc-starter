@@ -54,6 +54,19 @@ const postRouter = createTRPCRouter({
         select: defaultSelect,
       })
     }),
+
+  delete: protectedProcedure
+    .input(
+      z.object({
+        id: z.number(),
+      })
+    )
+    .mutation(async ({ input, ctx }) => {
+      return await ctx.prisma.post.delete({
+        where: { id: input.id },
+        select: defaultSelect,
+      })
+    }),
 })
 
 export default postRouter

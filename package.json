@@ -7,6 +7,7 @@
     "db-setup": "dotenv -- turbo run db-setup --filter @react-trpc-starter/database",
     "db-studio": "dotenv -- turbo run db-studio --filter @react-trpc-starter/database",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "dotenv -- turbo run test",
     "find-unused-code": "knip > unused-code-report.txt",
     "find-unused-code:files": "knip --include files > unused-code-report.txt",
     "find-unused-code:dependencies": "knip --dependencies > unused-code-report.txt",
