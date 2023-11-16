@@ -22,6 +22,7 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `react`: a React app
+- `e2e-tests`: end to end tests with Playwright
 - `trpc`: a Node + tRPC backend
 - `eslint-config-custom`: `eslint` configurations
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
@@ -36,6 +37,22 @@ Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 4. Run `yarn` to install all of the packages.
 5. Run `yarn db-setup` to run the Prisma generator and any migrations and seed data
 6. Run `yarn dev` to start running both the frontend and backend
+
+### Test
+
+Tests are set up to run in the 'trpc' package using Vitest, and end to end tests with Playwright in the 'e2e-tests' app.
+
+To run all tests, run
+
+```
+yarn test
+```
+
+To run just e2e tests, run
+
+```
+yarn test:e2e
+```
 
 ### Extras
 

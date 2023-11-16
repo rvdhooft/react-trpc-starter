@@ -4,6 +4,7 @@
     "build": "turbo run build",
     "dev": "dotenv -- turbo run dev",
     "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules/",
     "db-setup": "dotenv -- turbo run db-setup --filter @react-trpc-starter/database",
     "db-studio": "dotenv -- turbo run db-studio --filter @react-trpc-starter/database",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -17,9 +18,9 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "dotenv-cli": "^7.3.0",
-    "eslint": "^8.53.0",
-    "knip": "^2.40.2",
-    "prettier": "^3.0.3",
+    "eslint-config-custom": "*",
+    "knip": "^2.41.2",
+    "prettier": "^3.1.0",
     "turbo": "latest"
   },
   "name": "react-trpc-starter",

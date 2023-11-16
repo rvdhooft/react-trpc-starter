@@ -12,6 +12,7 @@
     },
     "db-setup": {},
     "db-studio": {},
-    "test": {}
+    "test": {},
+    "clean": {}
   }
 }

@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "test": "yarn playwright test --config ../../playwright.config.ts && yarn playwright show-report"
+    "test": "yarn playwright test --config ../../playwright.config.ts && yarn playwright show-report",
+    "clean": "rm -rf node_modules/ playwright-report/ test-results/"
   },
   "dependencies": {
     "playwright": "^1.39.0"
