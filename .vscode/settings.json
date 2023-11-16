@@ -4,12 +4,14 @@
     "Futura",
     "ianvs",
     "knip",
+    "msedge",
     "Neue",
     "prebuild",
     "tanstack",
     "trpc",
     "Turborepo",
-    "typesafe"
+    "typesafe",
+    "viewports"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,

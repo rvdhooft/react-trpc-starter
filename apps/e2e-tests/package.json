@@ -1,0 +1,15 @@
+{
+  "name": "@react-trpc-starter/e2e-tests",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "test": "yarn playwright test --config ../../playwright.config.ts && yarn playwright show-report"
+  },
+  "dependencies": {
+    "playwright": "^1.39.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.9.0"
+  }
+}

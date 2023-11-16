@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "env": ["CI", "APP_URL"]
     },
     "lint": {},
     "dev": {
