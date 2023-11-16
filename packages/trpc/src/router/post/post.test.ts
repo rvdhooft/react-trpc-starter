@@ -1,7 +1,7 @@
 import { inferProcedureInput } from '@trpc/server'
 import { expect, test } from 'vitest'
-import { createContextInner } from '../context'
-import appRouter, { AppRouter } from './'
+import appRouter, { AppRouter } from '..'
+import { createContextInner } from '../../context'
 
 test('1 === 1', () => {
   expect(1).toBe(1)

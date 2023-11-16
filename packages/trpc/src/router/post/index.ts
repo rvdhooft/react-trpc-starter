@@ -1,7 +1,15 @@
 import { Prisma } from '@react-trpc-starter/database'
 import { TRPCError } from '@trpc/server'
-import { z } from 'zod'
-import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from '../../trpc'
+import {
+  ByIdInputSchema,
+  CreateInputSchema,
+  DeleteInputSchema,
+} from './_input-schemas'
 
 /**
  * Default selector
@@ -19,35 +27,22 @@ const postRouter = createTRPCRouter({
     return await ctx.prisma.post.findMany({ select: defaultSelect })
   }),
 
-  byId: publicProcedure
-    .input(
-      z.object({
-        id: z.number(),
+  byId: publicProcedure.input(ByIdInputSchema).query(async ({ input, ctx }) => {
+    const { id } = input
+    const post = await ctx.prisma.post.findUnique({
+      where: { id },
+      select: defaultSelect,
+    })
+    if (!post)
+      throw new TRPCError({
+        code: 'NOT_FOUND',
+        message: `No post with id '${id}'`,
       })
-    )
-    .query(async ({ input, ctx }) => {
-      const { id } = input
-      const post = await ctx.prisma.post.findUnique({
-        where: { id },
-        select: defaultSelect,
-      })
-      if (!post)
-        throw new TRPCError({
-          code: 'NOT_FOUND',
-          message: `No post with id '${id}'`,
-        })
-      return post
-    }),
+    return post
+  }),
 
   create: protectedProcedure
-    .input(
-      z.object({
-        id: z.number(),
-        title: z.string().min(1),
-        content: z.string().min(1),
-        authorId: z.number(),
-      })
-    )
+    .input(CreateInputSchema)
     .mutation(async ({ input, ctx }) => {
       return await ctx.prisma.post.create({
         data: input,
@@ -56,11 +51,7 @@ const postRouter = createTRPCRouter({
     }),
 
   delete: protectedProcedure
-    .input(
-      z.object({
-        id: z.number(),
-      })
-    )
+    .input(DeleteInputSchema)
     .mutation(async ({ input, ctx }) => {
       return await ctx.prisma.post.delete({
         where: { id: input.id },

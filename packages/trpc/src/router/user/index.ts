@@ -1,6 +1,11 @@
 import { Prisma } from '@react-trpc-starter/database'
 import { z } from 'zod'
-import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from '../../trpc'
+import { CreateInputSchema } from './_input-schemas'
 
 /**
  * Default selector
@@ -31,15 +36,13 @@ const userRouter = createTRPCRouter({
     })
   }),
 
-  create: protectedProcedure
-    .input(z.object({ name: z.string().min(1), email: z.string().min(1) }))
-    .mutation(async (opts) => {
-      const { input, ctx } = opts
-      return await ctx.prisma.user.create({
-        data: input,
-        select: defaultSelect,
-      })
-    }),
+  create: protectedProcedure.input(CreateInputSchema).mutation(async (opts) => {
+    const { input, ctx } = opts
+    return await ctx.prisma.user.create({
+      data: input,
+      select: defaultSelect,
+    })
+  }),
 })
 
 export default userRouter
