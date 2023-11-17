@@ -1,8 +1,8 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import theme from '../theme'
-import FallbackErrorBoundary from './_FallbackErrorBoundary'
-import QueryProvider from './_QueryProvider'
-import TRPCProvider from './_TRPCProvider'
+import theme from '../theme/theme'
+import FallbackErrorBoundary from './_fallback-error-boundary'
+import QueryProvider from './_query-provider'
+import TRPCProvider from './_trpc-provider'
 
 const RootProvider = ({ children }: { children: React.ReactNode }) => {
   return (

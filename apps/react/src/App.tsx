@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material'
 import { useState } from 'react'
-import Layout from './components/layout'
+import Layout from './components/layout/layout'
 import trpc from './utils/trpc'
 
 function App() {

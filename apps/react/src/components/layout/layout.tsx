@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
-import Fallback from './_ErrorFallback'
-import Navigation from './_Navigation'
+import Fallback from './_error-fallback'
+import Navigation from './_navigation'
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <>
