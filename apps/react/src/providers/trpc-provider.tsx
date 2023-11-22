@@ -1,6 +1,6 @@
 import { httpBatchLink } from '@trpc/client'
 import trpc from '../utils/trpc'
-import { queryClient } from './_query-provider'
+import { queryClient } from './query-provider'
 
 const trpcClient = trpc.createClient({
   links: [

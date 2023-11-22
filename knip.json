@@ -1,5 +1,8 @@
 {
   "workspaces": {
+    ".": {
+      "ignore": ["playwright.config.ts"]
+    },
     "packages/eslint-config-custom": {
       "ignoreDependencies": [
         "@typescript-eslint/eslint-plugin",

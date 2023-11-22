@@ -1,15 +1,27 @@
-import { ReactNode } from 'react'
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from '@azure/msal-react'
 import { ErrorBoundary } from 'react-error-boundary'
+import { Outlet } from 'react-router-dom'
 import Fallback from './_error-fallback'
 import Navigation from './_navigation'
+import Unauthenticated from './_unauthenticated'
 
-const Layout = ({ children }: { children: ReactNode }) => (
+const Layout = () => (
   <>
     <Navigation />
 
-    <ErrorBoundary FallbackComponent={Fallback}>
-      <main>{children}</main>
-    </ErrorBoundary>
+    <main>
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <AuthenticatedTemplate>
+          <Outlet />
+        </AuthenticatedTemplate>
+        <UnauthenticatedTemplate>
+          <Unauthenticated />
+        </UnauthenticatedTemplate>
+      </ErrorBoundary>
+    </main>
   </>
 )
 

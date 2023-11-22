@@ -1,5 +1,5 @@
+import InfoCard from '@/components/shared/info-card'
 import { FallbackProps } from 'react-error-boundary'
-import InfoCard from '../shared/info-card'
 
 // import { useAppInsightsContext } from '@microsoft/applicationinsights-react-js';
 
